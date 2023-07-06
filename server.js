@@ -4,7 +4,7 @@ const { PORT, MONGO_URI } = process.env;
 const express = require('express');
 const app = express();
 const port = PORT | 4000;
-const path = require('path');
+// const path = require('path');
 
 // CORS
 app.use(express.json());
@@ -29,12 +29,13 @@ mongoose
 const listRouter = require('./routes/list.router');
 app.use('/list', listRouter);
 
-app.use(express.static(path.join(__dirname, '/build')));
-
 app.listen(port, (req, res) => {
   console.log('start ' + port);
 });
 
+module.exports = app;
+
+// app.use(express.static(path.join(__dirname, '/build')));
 // app.get('*', function (res, req) {
 //   req.sendFile(path.join(__dirname, '/build/index.html'));
 // });
