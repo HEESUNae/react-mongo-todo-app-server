@@ -12,17 +12,11 @@ const createList = async (req, res, next) => {
 };
 
 //* READ
-// const cookie = require('cookie');
+
 const getList = async (req, res, next) => {
   try {
-    // const cookies = cookie.parse(req.headers.cookie);
     const getList = await listModal.find({});
-
-    // if (cookies.user) {
     res.status(200).json(getList);
-    // } else {
-    // res.status(404).send();
-    // }
   } catch (e) {
     next(e);
   }
