@@ -39,6 +39,8 @@ mongoose
   })
   .catch((err) => console.log(err));
 
+app.set('trust proxy', 1);
+
 // 세션만들기
 app.use(
   session({
