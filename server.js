@@ -18,7 +18,8 @@ app.use(cookieParser());
 // 클라이언트 cors 설정 + axios -> withCredentials:true
 app.use(
   cors({
-    origin: 'http://localhost:4001',
+    // origin: 'http://localhost:4001',
+    origin: 'https://react-mongo-todo-app.vercel.app',
     methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS', 'HEAD'],
     credentials: true, // 쿠키주고받기 허용
   })
