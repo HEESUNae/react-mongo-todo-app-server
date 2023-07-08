@@ -47,10 +47,12 @@ app.use(
     saveUninitialized: false,
     store: MongoStore.create({ mongoUrl: MONGO_URI, dbName: 'Mongoose-test' }),
     name: 'user', // cookie name
+    proxy: true,
     cookie: {
       httpOnly: true,
       sameSite: 'none',
-      // secure: false,
+      secure: true,
+      domain: 'https://react-mongo-todo-app-server.vercel.app',
       // maxAge: 3.6e6 * 24
     }, // 24시간 뒤 만료(자동 삭제)
   })
