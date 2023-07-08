@@ -19,7 +19,8 @@ var cors = require('cors');
 app.use(
   cors({
     // origin: 'http://localhost:4001',
-    origin: 'https://react-mongo-todo-app.vercel.app',
+    // origin: 'https://react-mongo-todo-app.vercel.app',
+    origin: 'https://heesunae.github.io',
     methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS', 'HEAD'],
     credentials: true, // 쿠키주고받기 허용
   })
