@@ -1,12 +1,12 @@
 const { default: mongoose } = require('mongoose');
 
-const listSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
-    title: {
+    id: {
       type: String,
       required: true,
     },
-    content: {
+    pw: {
       type: String,
       required: true,
     },
@@ -16,10 +16,10 @@ const listSchema = new mongoose.Schema(
     },
   },
   {
-    collection: 'list',
+    collection: 'user',
   }
 );
 
-const List = mongoose.model('List', listSchema);
+const User = mongoose.model('user', userSchema);
 
-module.exports = List;
+module.exports = User;

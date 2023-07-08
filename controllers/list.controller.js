@@ -3,7 +3,8 @@ const listModal = require('../models/list.model');
 //* CREATE
 const createList = async (req, res, next) => {
   try {
-    const createList = await listModal.create(req.body);
+    const listCont = { title: req.body.title, content: req.body.content, name: req.session.user.name };
+    const createList = await listModal.create(listCont);
     res.status(201).json(createList);
   } catch (err) {
     next(err);
@@ -11,10 +12,17 @@ const createList = async (req, res, next) => {
 };
 
 //* READ
+// const cookie = require('cookie');
 const getList = async (req, res, next) => {
   try {
+    // const cookies = cookie.parse(req.headers.cookie);
     const getList = await listModal.find({});
+
+    // if (cookies.user) {
     res.status(200).json(getList);
+    // } else {
+    // res.status(404).send();
+    // }
   } catch (e) {
     next(e);
   }
