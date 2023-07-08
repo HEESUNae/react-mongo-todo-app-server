@@ -3,8 +3,9 @@ const listModal = require('../models/list.model');
 //* CREATE
 const createList = async (req, res, next) => {
   try {
-    const listCont = { title: req.body.title, content: req.body.content, name: req.session.user.name };
-    const createList = await listModal.create(listCont);
+    // const listCont = { title: req.body.title, content: req.body.content, name: req.session.user.name };
+    // const listCont = { title: req.body.title, content: req.body.content };
+    const createList = await listModal.create(req.body);
     res.status(201).json(createList);
   } catch (err) {
     next(err);
