@@ -6,14 +6,14 @@ const app = express();
 const port = PORT | 4000;
 const session = require('express-session');
 const MongoStore = require('connect-mongo');
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 
 // CORS
 app.use(express.json());
 var cors = require('cors');
 
 // cookieParser
-app.use(cookieParser());
+// app.use(cookieParser());
 
 // 클라이언트 cors 설정 + axios -> withCredentials:true
 app.use(
@@ -49,6 +49,7 @@ app.use(
     name: 'user', // cookie name
     cookie: {
       httpOnly: true,
+      sameSite: 'none',
       // secure: false,
       // maxAge: 3.6e6 * 24
     }, // 24시간 뒤 만료(자동 삭제)
